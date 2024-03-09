@@ -1,0 +1,7 @@
+object BrookDataModule1: TBrookDataModule1
+  OldCreateOrder = False
+  Height = 150
+  HorizontalOffset = 1720
+  VerticalOffset = 250
+  Width = 150
+end

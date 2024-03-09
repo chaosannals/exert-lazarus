@@ -2,3 +2,9 @@
 **/lib/
 *.exe
 *.db
+*.o
+*.obj
+*.bf
+*.ppu
+*.fbf
+*.compiled
