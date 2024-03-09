@@ -39,39 +39,27 @@
         <ComponentName Value="BrookDataModule1"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="Unit1"/>
+        <EditorIndex Value="-1"/>
         <UsageCount Value="20"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="brokers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Brokers"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="26" Y="13"/>
         <UsageCount Value="20"/>
-        <Loaded Value="True"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\brookfreepascal\brokers\brookfclhttpdaemonbroker.pas"/>
         <UnitName Value="BrookFCLHttpDaemonBroker"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="107"/>
         <CursorPos Y="119"/>
         <UsageCount Value="10"/>
-        <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="1">
-      <Position>
-        <Filename Value="brokers.pas"/>
-      </Position>
-      <Position>
-        <Filename Value="brokers.pas"/>
-        <Caret Line="13" Column="26"/>
-      </Position>
-    </JumpHistory>
+    <JumpHistory HistoryIndex="-1"/>
   </ProjectOptions>
   <CompilerOptions>
     <Version Value="11"/>

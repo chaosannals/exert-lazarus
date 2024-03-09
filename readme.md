@@ -22,7 +22,11 @@ DockedFormEditor
 
 这个框架支持生成类型：
 
+Full Cgi/FastCGI Server 项是有个导航页，用来引导生成项目。
+
 - CGI ，老式的网关协议，可执行文件，有安全隐患。
 - FastCGI， PHP 使用的 CGI 协议，通过 socket 和反向代理交互。
 - 内嵌服务器， 就是一般 golang rust c++ 生成的 exe HTTP 服务器后端。
 - embed daemon server 这种不知道是啥，生成了 exe 文件，执行没有反应。。。。
+
+这框架文档只到了开启服务器，没看到其他文档，基本上要靠自己扩展开发了吧，太裸了。
