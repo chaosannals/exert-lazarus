@@ -20,7 +20,9 @@ DockedFormEditor
 
 ### [brookfreepascal](https://github.com/risoflora/brookfreepascal)
 
-这个框架支持生成
-CGI ，老式的网关协议，可执行文件，有安全隐患。
-FastCGI， PHP 使用的 CGI 协议，通过 socket 和反向代理交互。
+这个框架支持生成类型：
 
+- CGI ，老式的网关协议，可执行文件，有安全隐患。
+- FastCGI， PHP 使用的 CGI 协议，通过 socket 和反向代理交互。
+- 内嵌服务器， 就是一般 golang rust c++ 生成的 exe HTTP 服务器后端。
+- embed daemon server 这种不知道是啥，生成了 exe 文件，执行没有反应。。。。
