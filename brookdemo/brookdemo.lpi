@@ -27,124 +27,110 @@
       <Unit>
         <Filename Value="brookdemo.lpr"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="9"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="27"/>
       </Unit>
       <Unit>
         <Filename Value="unit1.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Unit1"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
         <CursorPos X="33" Y="25"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="27"/>
       </Unit>
       <Unit>
         <Filename Value="unit2.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Unit2"/>
-        <EditorIndex Value="1"/>
+        <EditorIndex Value="-1"/>
         <CursorPos X="38" Y="25"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="27"/>
       </Unit>
       <Unit>
         <Filename Value="unit3.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Unit3"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="2"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="7"/>
         <CursorPos X="37" Y="25"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="27"/>
       </Unit>
       <Unit>
         <Filename Value="unit4.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="BrookDataModule1"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="Unit4"/>
-        <EditorIndex Value="4"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="3"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
-        <LoadedDesigner Value="True"/>
+        <UsageCount Value="27"/>
       </Unit>
       <Unit>
         <Filename Value="brokers.pas"/>
         <IsPartOfProject Value="True"/>
         <UnitName Value="Brokers"/>
-        <EditorIndex Value="5"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="27"/>
       </Unit>
       <Unit>
         <Filename Value="404.html"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="7"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="27"/>
         <DefaultSyntaxHighlighter Value="HTML"/>
       </Unit>
       <Unit>
         <Filename Value="500.html"/>
         <IsPartOfProject Value="True"/>
-        <EditorIndex Value="8"/>
-        <UsageCount Value="20"/>
-        <Loaded Value="True"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="27"/>
         <DefaultSyntaxHighlighter Value="HTML"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\brookfreepascal\brokers\brookfclhttpappbroker.pas"/>
         <UnitName Value="BrookFCLHttpAppBroker"/>
-        <EditorIndex Value="3"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="276"/>
         <CursorPos Y="284"/>
-        <UsageCount Value="10"/>
-        <Loaded Value="True"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\brookfreepascal\core\brookrouter.pas"/>
         <UnitName Value="BrookRouter"/>
-        <EditorIndex Value="6"/>
+        <EditorIndex Value="-1"/>
         <TopLine Value="703"/>
         <CursorPos Y="716"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="D:\Lazarus\ide\lazarus.pp"/>
+        <UnitName Value="Lazarus"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="148"/>
+        <CursorPos Y="171"/>
+        <UsageCount Value="9"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\mORMot2demo\httpserverraw.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="httpServerRaw"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="40"/>
+        <CursorPos X="2" Y="52"/>
+        <UsageCount Value="27"/>
         <Loaded Value="True"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="7">
+    <JumpHistory HistoryIndex="1">
       <Position>
-        <Filename Value="unit3.pas"/>
+        <Filename Value="..\mORMot2demo\httpserverraw.pas"/>
+        <Caret Column="20"/>
       </Position>
       <Position>
-        <Filename Value="brokers.pas"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\brookfreepascal\core\brookrouter.pas"/>
-        <Caret Line="789" TopLine="778"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\brookfreepascal\core\brookrouter.pas"/>
-        <Caret Line="792" TopLine="778"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\brookfreepascal\core\brookrouter.pas"/>
-        <Caret Line="794" TopLine="778"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\brookfreepascal\core\brookrouter.pas"/>
-        <Caret Line="801" TopLine="781"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\brookfreepascal\core\brookrouter.pas"/>
-        <Caret Line="716" TopLine="703"/>
-      </Position>
-      <Position>
-        <Filename Value="..\..\brookfreepascal\brokers\brookfclhttpappbroker.pas"/>
-        <Caret Line="287" TopLine="276"/>
+        <Filename Value="..\mORMot2demo\httpserverraw.pas"/>
+        <Caret Line="52" Column="2" TopLine="40"/>
       </Position>
     </JumpHistory>
   </ProjectOptions>
@@ -156,6 +142,7 @@
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
+      <OtherUnitFiles Value="..\mORMot2demo"/>
     </SearchPaths>
     <Linking>
       <Debugging>

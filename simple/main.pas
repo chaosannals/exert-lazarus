@@ -13,12 +13,16 @@ type
   { TForm1 }
 
   TForm1 = class(TForm)
-    BitBtn1: TBitBtn;
     Button1: TButton;
+    TipLabel: TLabel;
+    SqliteLinkEdit: TEdit;
+    Label1: TLabel;
     SQLite3Connection1: TSQLite3Connection;
     SQLTransaction1: TSQLTransaction;
     procedure Button1Click(Sender: TObject);
+    procedure SqliteLinkEditChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure Label1Click(Sender: TObject);
     procedure SQLite3Connection1AfterConnect(Sender: TObject);
   private
 
@@ -40,15 +44,22 @@ begin
 
 end;
 
+procedure TForm1.Label1Click(Sender: TObject);
+begin
+
+end;
+
 procedure TForm1.Button1Click(Sender: TObject);
 var
   newFile : Boolean;
 begin
   try
+    SQLite3Connection1.DatabaseName := SqliteLinkEdit.Text;
     newFile := not FileExists(SQLite3Connection1.DatabaseName);
     if newFile then
     begin
       try
+         TipLabel.Caption := 'TTTT';
          SQLite3Connection1.Open;
          SQLTransaction1.Active := true;
 
@@ -67,6 +78,11 @@ begin
     end;
   finally
   end;
+end;
+
+procedure TForm1.SqliteLinkEditChange(Sender: TObject);
+begin
+
 end;
 
 procedure TForm1.SQLite3Connection1AfterConnect(Sender: TObject);

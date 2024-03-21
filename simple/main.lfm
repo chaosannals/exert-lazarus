@@ -7,22 +7,38 @@ object Form1: TForm1
   ClientHeight = 396
   ClientWidth = 494
   OnCreate = FormCreate
-  object BitBtn1: TBitBtn
-    Left = 136
-    Height = 30
-    Top = 176
-    Width = 75
-    Caption = 'BitBtn1'
-    TabOrder = 0
-  end
   object Button1: TButton
-    Left = 136
+    Left = 240
     Height = 25
-    Top = 128
+    Top = 88
     Width = 75
     Caption = '链接数据库'
-    TabOrder = 1
+    TabOrder = 0
     OnClick = Button1Click
+  end
+  object SqliteLinkEdit: TEdit
+    Left = 96
+    Height = 25
+    Top = 88
+    Width = 136
+    TabOrder = 1
+    Text = 'demo.db'
+    OnChange = SqliteLinkEditChange
+  end
+  object Label1: TLabel
+    Left = 32
+    Height = 17
+    Top = 96
+    Width = 37
+    Caption = 'SQLite'
+    OnClick = Label1Click
+  end
+  object TipLabel: TLabel
+    Left = 32
+    Height = 17
+    Top = 120
+    Width = 3
+    Caption = ':'
   end
   object SQLite3Connection1: TSQLite3Connection
     Connected = False
