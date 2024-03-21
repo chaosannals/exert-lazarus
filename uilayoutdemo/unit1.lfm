@@ -6,4 +6,5 @@ object Form1: TForm1
   Caption = 'Form1'
   OnActivate = FormActivate
   OnCreate = FormCreate
+  OnResize = FormResize
 end

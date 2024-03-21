@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, unit2, LazLogger;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, unit2, LazLogger, unit3;
 
 type
 
@@ -14,6 +14,7 @@ type
   TForm1 = class(TForm)
     procedure FormActivate(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormResize(Sender: TObject);
   private
 
   public
@@ -22,6 +23,9 @@ type
 
 var
   Form1: TForm1;
+  current: TForm;
+  form2: TForm2;
+  form3: TForm3;
 
 implementation
 
@@ -30,21 +34,25 @@ implementation
 { TForm1 }
 
 procedure TForm1.FormActivate(Sender: TObject);
-var
-  form2: TForm2;
 begin
-  debugln('FormActivate');
-  form2 := TForm2.Create(self);
-  form2.Parent := self;
+  debugln(['FormActivate ', self]);
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
-var
-  form2: TForm2;
 begin
-  debugln('FormCreate');
-  form2 := TForm2.Create(Self);
-  form2.Parent := Self;
+  debugln(['FormCreate ', Self]);
+  form2 := TForm2.Create(Application);
+  with form2 do begin
+      SetBounds(0, 0, Self.Width, Self.height);
+      Parent := Self;
+      Visible := true;
+  end;
+  current := form2;
+end;
+
+procedure TForm1.FormResize(Sender: TObject);
+begin
+  current.SetBounds(0, 0, Self.Width, Self.height);
 
 end;
 

@@ -3,6 +3,7 @@ object Form2: TForm2
   Height = 257
   Top = 250
   Width = 297
+  BorderStyle = bsNone
   Caption = 'Form2'
   ClientHeight = 257
   ClientWidth = 297
