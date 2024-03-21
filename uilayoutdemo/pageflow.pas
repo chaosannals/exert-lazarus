@@ -36,6 +36,7 @@ type
     Button9: TButton;
     FlowPanel1: TFlowPanel;
     procedure Button1Click(Sender: TObject);
+    procedure Button2Click(Sender: TObject);
   private
 
   public
@@ -54,6 +55,11 @@ implementation
 procedure TForm2.Button1Click(Sender: TObject);
 begin
   FOnNav(Sender, 'unit3');
+end;
+
+procedure TForm2.Button2Click(Sender: TObject);
+begin
+  FOnNav(Sender, 'dock');
 end;
 
 end.

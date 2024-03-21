@@ -5,7 +5,7 @@ unit mainform;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, pageflow, LazLogger, page3, formpage;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, pageflow, LazLogger, page3, formpage, pagedock;
 
 type
 
@@ -27,6 +27,7 @@ var
   current: ^TFormPage;
   form2: TForm2;
   form3: TForm3;
+  dock5: TForm5;
 
 implementation
 
@@ -59,6 +60,14 @@ begin
       Visible := false;
   end;
 
+  // 初始化 dock
+  dock5 := TForm5.Create(Application);
+  with dock5 do begin
+      SetBounds(0, 0, Self.Width, Self.height);
+      Parent := Self;
+      Visible := false;
+  end;
+
   current := @form2;
   with current^ do begin
     Visible:= true;
@@ -82,6 +91,9 @@ begin
   'unit3':begin
       current := @form3;
   end;
+  'dock':begin
+      current := @dock5;
+  end;
   else begin
       current := @form2;
   end;
@@ -91,6 +103,7 @@ begin
   with current^ do begin
     Visible:= true;
     OnNav := @NavPage;
+    SetBounds(0, 0, Self.Width, Self.height);
   end;
 end;
 
