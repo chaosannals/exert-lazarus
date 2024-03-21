@@ -5,7 +5,7 @@ unit mainform;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, unit2, LazLogger, unit3, formpage;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, pageflow, LazLogger, unit3, formpage;
 
 type
 

@@ -7,6 +7,7 @@ object Form2: TForm2
   Caption = 'Form2'
   ClientHeight = 257
   ClientWidth = 297
+  LCLVersion = '3.0.0.3'
   object FlowPanel1: TFlowPanel
     Left = 0
     Height = 257
