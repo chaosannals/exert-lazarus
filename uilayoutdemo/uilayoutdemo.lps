@@ -32,6 +32,7 @@
         <ComponentName Value="Form2"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
         <TopLine Value="43"/>
         <CursorPos X="23" Y="62"/>
@@ -112,7 +113,6 @@
         <IsPartOfProject Value="True"/>
         <ComponentName Value="Form5"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <TopLine Value="10"/>
         <CursorPos X="3" Y="45"/>
         <UsageCount Value="20"/>
