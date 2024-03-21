@@ -5,7 +5,7 @@ unit mainform;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, pageflow, LazLogger, unit3, formpage;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, pageflow, LazLogger, page3, formpage;
 
 type
 
@@ -24,7 +24,7 @@ type
 
 var
   Form1: TForm1;
-  current: TFormPage;
+  current: ^TFormPage;
   form2: TForm2;
   form3: TForm3;
 
@@ -59,8 +59,8 @@ begin
       Visible := false;
   end;
 
-  current := form2;
-  with current do begin
+  current := @form2;
+  with current^ do begin
     Visible:= true;
     OnNav := @NavPage;
   end;
@@ -68,27 +68,27 @@ end;
 
 procedure TForm1.FormResize(Sender: TObject);
 begin
-  current.SetBounds(0, 0, Self.Width, Self.height);
+  current^.SetBounds(0, 0, Self.Width, Self.height);
 
 end;
 
 procedure TForm1.NavPage(Sender: TObject; Target: string);
 begin
-  current.Visible:= false;
+  current^.Visible:= false;
   case Target of
   'unit2':begin
-      current := form2;
+      current := @form2;
   end;
   'unit3':begin
-      current := form3;
+      current := @form3;
   end;
   else begin
-      current := form2;
+      current := @form2;
   end;
   end;
 
   DebugLn('nav to', Target);
-  with current do begin
+  with current^ do begin
     Visible:= true;
     OnNav := @NavPage;
   end;
