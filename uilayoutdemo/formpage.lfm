@@ -1,0 +1,9 @@
+object Form4: TForm4
+  Left = 2170
+  Height = 240
+  Top = 250
+  Width = 320
+  BorderStyle = bsNone
+  Caption = 'Form4'
+  OnCreate = FormCreate
+end
