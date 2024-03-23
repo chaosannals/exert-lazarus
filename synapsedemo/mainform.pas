@@ -5,12 +5,17 @@ unit mainform;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs,
+  blcksock, sockets, Synautil, LazLogger, myhttpserver;
 
 type
-  TMainForm = class(TForm)
-  private
 
+  { TMainForm }
+
+  TMainForm = class(TForm)
+    procedure FormCreate(Sender: TObject);
+  private
+    myThread: TMyHttpServer;
   public
 
   end;
@@ -21,6 +26,12 @@ var
 implementation
 
 {$R *.lfm}
+
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+  myThread := TMyHttpServer.Create(True);
+  myThread.Start;
+end;
 
 end.
 
