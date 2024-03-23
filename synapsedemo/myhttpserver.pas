@@ -12,16 +12,30 @@ uses
   LazLogger;
 
 type
+  TMyHttpServerStatusChangedEventHandle = procedure(Sender: TObject; status: string) of object;
+
   TMyHttpServer = class(TThread)
     private
       statusText: string;
+      ListenerSocket: TTCPBlockSocket;
+      mutex: TMultiReadExclusiveWriteSynchronizer;
 
       procedure AttendConnection(ASocket: TTCPBlockSocket);
       procedure ShowStatus;
     protected
+      FOnStatusTextChanged: TMyHttpServerStatusChangedEventHandle;
+
       procedure Execute; override;
     public
       constructor Create(createSuspended: boolean);
+      procedure Start2();
+      procedure Drop();
+
+      function Status(): string;
+
+      property OnStatusTextChanged: TMyHttpServerStatusChangedEventHandle
+        read FOnStatusTextChanged
+        write FOnStatusTextChanged;
   end;
 
 implementation
@@ -29,6 +43,7 @@ implementation
 constructor TMyHttpServer.Create(CreateSuspended: boolean);
 begin
   FreeOnTerminate := True;
+  mutex := TMultiReadExclusiveWriteSynchronizer.Create;
   inherited Create(CreateSuspended);
 end;
 
@@ -37,24 +52,32 @@ begin
   DebugLn('server status: %s', statusText);
 end;
 
+function TMyHttpServer.Status(): string;
+begin
+  mutex.Beginread;
+  result := statusText;
+  mutex.Endread;
+end;
+
 procedure TMyHttpServer.Execute;
 var
-   //newStatus: string;
-   ListenerSocket: TTCPBlockSocket;
    ConnectionSocket: TTCPBlockSocket;
 begin
-   statusText := 'Start';
    //Syncharonize(@ShowStatus);
-   statusText := 'Run';
-   //while (not Terminated) do
-   //end;
    ListenerSocket := TTCPBlockSocket.Create;
    ConnectionSocket := TTCPBlockSocket.Create;
 
-   ListenerSocket.CreateSocket;
-   ListenerSocket.SetLinger(true, 10);
-   ListenerSocket.Bind('0.0.0.0', '15000');
-   ListenerSocket.Listen;
+   with ListenerSocket do begin
+     CreateSocket;
+     SetLinger(true, 10);
+     Bind('0.0.0.0', '15000');
+     Listen;
+   end;
+
+   mutex.BeginWrite;
+   statusText := 'Run';
+   FOnStatusTextChanged(Self, statusText);
+   mutex.EndWrite;
 
    repeat
      if ListenerSocket.CanRead(1000) then
@@ -63,9 +86,32 @@ begin
        AttendConnection(ConnectionSocket);
        ConnectionSocket.CloseSocket
      end;
-   until false;
+   until statusText = 'Closing';
+
+   mutex.BeginWrite;
+   statusText := 'Close';
+   FOnStatusTextChanged(Self, statusText);
    ListenerSocket.Free;
    ConnectionSocket.Free;
+   mutex.EndWrite;
+end;
+
+procedure TMyHttpServer.Start2();
+begin
+   mutex.BeginWrite;
+   statusText := 'Start';
+   FOnStatusTextChanged(Self, statusText);
+   mutex.EndWrite;
+   Start();
+end;
+
+procedure TMyHttpServer.Drop();
+begin
+  mutex.BeginWrite;
+  statusText := 'Closing';
+  FOnStatusTextChanged(Self, statusText);
+  mutex.EndWrite;
+  ListenerSocket.CloseSocket;
 end;
 
 procedure TMyHttpServer.AttendConnection(ASocket: TTCPBlockSocket);
