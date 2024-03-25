@@ -85,6 +85,8 @@ begin
      // 因为如果不这么写，在不关闭 ListenerSocket 的情况下直接关闭程序，
      // 有一定几率触发，不是 ListenerSocket 读会失败，而是 ConnectionSocket 的读会失败。
      // 而且触发的点不同，都是空指针访问。加上此句就没问题。
+     // 猜测，这条函数有副作用，会填充一个一定会让 Accept 成功的对象。
+     // 即使这个对象是 Mock 假对象，用来结束使用。
      if ListenerSocket.CanRead(4) then
      begin
        // Accept 在 ListenerSocket 被关闭后，还是要等下次请求才能触发并终止阻塞。
