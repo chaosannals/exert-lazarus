@@ -80,11 +80,20 @@ begin
    mutex.EndWrite;
 
    repeat
-     if ListenerSocket.CanRead(1000) then
+     // 这个判断好似没有必要，Accept 会阻塞。
+     // 应该是和这个库的内部实现有关，这种写法很吊诡。
+     // 因为如果不这么写，在不关闭 ListenerSocket 的情况下直接关闭程序，
+     // 有一定几率触发，不是 ListenerSocket 读会失败，而是 ConnectionSocket 的读会失败。
+     // 而且触发的点不同，都是空指针访问。加上此句就没问题。
+     if ListenerSocket.CanRead(4) then
      begin
+       // Accept 在 ListenerSocket 被关闭后，还是要等下次请求才能触发并终止阻塞。
+       // 这里很奇怪，明明 ListenerSocket 被关闭后， Accept 还是有一次会通过的。
+       // 这里也没判定，程序是会继续的，但是不报错。
+       // 也就是存在最后一次通过是无效，但是一切正常的情况。
        ConnectionSocket.Socket := ListenerSocket.Accept;
        AttendConnection(ConnectionSocket);
-       ConnectionSocket.CloseSocket
+       ConnectionSocket.CloseSocket;
      end;
    until statusText = 'Closing';
 

@@ -8,12 +8,19 @@ object MainForm: TMainForm
   ClientWidth = 320
   OnCreate = FormCreate
   object HttpServerButton: TButton
-    Left = 0
+    Left = 112
     Height = 33
     Top = 0
     Width = 112
     Caption = '启动HTTP服务'
     TabOrder = 0
     OnClick = HttpServerButtonClick
+  end
+  object httpServerStatusLabel: TLabel
+    Left = 4
+    Height = 17
+    Top = 16
+    Width = 40
+    Caption = '[None]'
   end
 end
